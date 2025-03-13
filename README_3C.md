@@ -10,7 +10,7 @@ Il repository contiene modifiche necessarie al funzionamento del Gateway FSE 2.0
 
 Si è scelto di mantenere nel branch `stable` le modifiche necessarie al funzionamento del Gateway FSE 2.0 nell'ambiente del private cloud HTN, mentre nel branch `main` si mantiene il codice del repository originale.
 
-## Procedura di allineamento
+# Procedura di allineamento
 
 Per mantenere il fork allineato al repository originale è necessario seguire la seguente procedura:
 
@@ -48,3 +48,11 @@ git tag -a <versione>
 git push origin <versione>
 ```
 
+# Changelog
+
+## 12/03/2025
+
+### Fix
+
+- Aggiunto parametro `server.max-http-header-size` nel file `application-docker.properties` per aumentare la dimensione massima dell'header HTTP su Tomcat9: risolve errori `Request header is too large` durante l'invio di richieste HTTP dal client.
+- Aggiunti parametri `kafka.oauth.*` mancanti nel file `application.properties`: risolve errori in fase di avvio container (vedi issue [#8](https://github.com/ministero-salute/it-fse-gtw-test-container/issues/8)).
